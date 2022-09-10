@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'message',
     'language',
     'experience',
+    # Third-Party Packages
+    'rest_framework',
 ]
 
 
