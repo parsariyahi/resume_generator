@@ -1,8 +1,8 @@
 from django.contrib.auth.models import BaseUserManager
 
-
 class UserManager(BaseUserManager):
-    def create_user(self, username, full_name, email, phone_number, password=None):
+    def create_user(self, username, full_name, email, phone_number, 
+                    password=None, year_of_birth=None, address=None):
         if not username:
             raise ValueError('Username is Required')
 
@@ -11,6 +11,8 @@ class UserManager(BaseUserManager):
             full_name=full_name,
             email=email,
             phone_number=phone_number,
+            year_of_birth=year_of_birth,
+            address=address,
         )
 
         user.set_password(password)
