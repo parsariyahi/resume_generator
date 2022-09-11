@@ -5,6 +5,9 @@ class UserManager(BaseUserManager):
                     password=None, year_of_birth=None, address=None):
         if not username:
             raise ValueError('Username is Required')
+        
+        if not password:
+            raise ValueError('Password is Required')
 
         user = self.model(
             username=username,
@@ -20,6 +23,10 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, username, full_name, email, phone_number, password=None):
+
+        if not password:
+            raise ValueError('Password is Required')
+
         user = self.create_user(
             username=username,
             full_name=full_name,
