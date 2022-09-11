@@ -16,3 +16,6 @@ class Experience(models.Model):
     end_date = models.DateField()
     description = models.TextField(null=True)
     type = models.IntegerField(choices=EXPERIENCE_TYPE)
+
+    def __str__(self) :
+        return self.user_profile.user.username

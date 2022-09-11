@@ -22,3 +22,6 @@ class Language(models.Model):
     user_profile = models.ForeignKey(Prof, on_delete=models.CASCADE, related_name="languages")
     lang = models.CharField(max_length=3, choices=LANGUAGES)
     level = models.IntegerField(choices=LANGUAGE_LEVEL)
+
+    def __str__(self) :
+        return self.user_profile.user.username
