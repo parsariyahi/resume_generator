@@ -1,17 +1,20 @@
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+
+from user.api.permissions import IsAdmin, IsOwner
 from .models import Skill
 from .serializers import SkillSerializer
-from rest_framework import generics
-# Create your views here.
-
 
 class SkillCreateView(generics.CreateAPIView):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+    # permission_classes = [IsAuthenticated]
 
 
 class SkillReadView(generics.RetrieveAPIView):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+    # permission_classes = [IsOwner]
 
 
 class SkillUpdateView(generics.UpdateAPIView):
