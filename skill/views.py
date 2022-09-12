@@ -1,27 +1,29 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from user.api.permissions import IsAdmin
 
-from user.api.permissions import IsAdmin, IsOwner
 from .models import Skill
 from .serializers import SkillSerializer
 
+
 class SkillCreateView(generics.CreateAPIView):
+    permission_classes = [IsAdmin]
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
-    # permission_classes = [IsAuthenticated]
 
 
 class SkillReadView(generics.RetrieveAPIView):
+    permission_classes = [IsAdmin]
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
-    # permission_classes = [IsOwner]
 
 
 class SkillUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAdmin]
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
 
 
 class SkillDeleteView(generics.DestroyAPIView):
+    permission_classes = [IsAdmin]
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer

@@ -1,5 +1,7 @@
 from django.urls import path
+
 from . import views
+
 urlpatterns = [
     path("create/", views.ProjectCreateView.as_view()),
     path("read/<int:pk>/", views.ProjectReadView.as_view()),

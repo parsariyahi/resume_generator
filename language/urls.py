@@ -1,5 +1,7 @@
 from django.urls import path
+
 from . import views
+
 urlpatterns = [
     path("create/", views.LanguageCreateView.as_view()),
     path("read/<int:pk>/", views.LanguageReadView.as_view()),
