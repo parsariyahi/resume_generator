@@ -8,6 +8,7 @@ class Prof(models.Model):
         User, on_delete=models.CASCADE,
         related_name="user_profile"
     )
+    link = models.CharField(max_length=250, unique=True)
     title = models.CharField(
         max_length=150, default=None,
         null=True, blank=True,
@@ -23,5 +24,5 @@ class Prof(models.Model):
         default=None, null=True, blank=True,
     )
 
-    def __str__(self) :
+    def __str__(self):
         return self.user.username
