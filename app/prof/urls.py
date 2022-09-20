@@ -3,5 +3,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("<resume_link>/", views.Test.as_view())
+    path("<resume_link>/", views.ProfileInformation.as_view())
 ]
